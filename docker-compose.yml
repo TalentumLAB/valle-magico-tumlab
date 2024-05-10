@@ -34,7 +34,7 @@ services:
     networks:
       - valle-magico-net
   valle-magico-game:
-    image: vallelabs/valle-magico-game:2.3.6-tumlab
+    image: vallelabs/valle-magico-game:2.3.6-tumlab.1
     container_name: valle-magico-game
     restart: always
     extra_hosts:
