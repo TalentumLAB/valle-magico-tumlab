@@ -40,6 +40,28 @@ services:
       - "3009:80"
     networks:
       - valle-magico-net
+      
+  valle-magico-mysql:
+    image: mysql:5.7
+    container_name: valle-magico-mysql
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+      - "tumlab.local:192.168.4.1"
+    environment:
+      MYSQL_DATABASE: valle_magico
+      MYSQL_USER: valleroot 
+      MYSQL_PASSWORD: Tumlab2022*
+    volumes:
+      - mysqlvallemagico:/var/lib/mysql
+      - /tumlab/apps/vallemagico/vallemagico.sql:/docker-entrypoint-initdb.d/
+    networks:
+      - valle-magico-net
 networks:
   valle-magico-net:
     driver: bridge
+    
+volumes:
+  mysqlvallemagico:
+    driver: local
+
