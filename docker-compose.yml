@@ -55,7 +55,7 @@ services:
       MYSQL_PASSWORD: Tumlab2022*
     volumes:
       - mysqlvallemagico:/var/lib/mysql
-      - /tumlab/apps/vallemagico/vallemagico.sql:/docker-entrypoint-initdb.d/
+      - /tumlab/apps/vallemagico/:/docker-entrypoint-initdb.d/
     networks:
       - valle-magico-net
 networks:
